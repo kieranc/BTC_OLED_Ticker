@@ -5,7 +5,7 @@ http.get("http://api.coindesk.com/v1/bpi/currentprice/EUR.json", nil, function(c
       -- Decode JSON data
       t = cjson.decode(data)
       -- Extract BTC/EUR price from decoded JSON
-      rate = string.format("%.3f", t["bpi"]["EUR"]["rate"]);
+      rate = string.format("%.3f", t["bpi"]["EUR"]["rate_float"]);
       -- This is a hack to get the (GMT) time from JSON and display it as CET
       pos = string.find(t["time"]["updateduk"], ':')
       hours = (string.sub(t["time"]["updateduk"], pos-2, pos-1)+1)
